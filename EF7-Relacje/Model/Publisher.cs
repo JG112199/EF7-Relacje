@@ -2,6 +2,7 @@
 {
     public class Publisher
     {
+        // Relacja jeden do wielu z Books. Książka ma jednego wydawcę, ale wydawca ma wiele książek
         public int Id { get; set; }
         public string Name { get; set; }
 

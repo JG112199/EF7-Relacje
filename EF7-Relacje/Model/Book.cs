@@ -2,8 +2,9 @@
 {
     public class Book
     {
-        //Relacja jeden do jednego z ISBN - jedna ksiazka posiada jeden isbn i jeden isbn jest przypisany do jednej ksiazki
+        // Relacja jeden do jednego z ISBN. Jedna ksiazka posiada jeden isbn i jeden isbn jest przypisany do jednej ksiazki
         // Relacja jeden do wielu z Wydawcą. Książka ma jednego wydawcę, ale wydawca ma wiele książek
+        // Relacja wielu do wielu z Autorem. Książka może mieć wielu autorów i autor może mieć wiele książek
         public int Id { get; set; }
         public string Title { get; set; }
 
@@ -15,5 +16,8 @@
 
         // Wartość referencyjna do wydawcy
         public Publisher Publisher { get; set; }
+
+        // Wartość referencyjna do autorów danej książki
+        public List<Author> Authors { get; set; }
     }
 }
