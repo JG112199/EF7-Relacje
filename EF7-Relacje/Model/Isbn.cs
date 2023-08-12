@@ -8,8 +8,9 @@
 
         // Foreign Key do tabeli Books
         public int BookId { get; set; }
-        // Wartość referencyjna do książki w relecji jeden do jednego Book - Isbn
-        public Book Book { get; set; }
+
+        // Nawigacja referencyjna do książki w relecji jeden do jednego Book - Isbn
+        public Book Book { get; set; } = null!;
 
     }
 }
