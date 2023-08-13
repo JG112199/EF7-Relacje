@@ -3,6 +3,7 @@ using EF7_Relacje.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EF7_Relacje.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230812070522_ChangeNullablePropsAndBook-IsbnRelation")]
+    partial class ChangeNullablePropsAndBookIsbnRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,6 +70,7 @@ namespace EF7_Relacje.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -93,9 +97,6 @@ namespace EF7_Relacje.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BookId")
-                        .IsUnique();
-
-                    b.HasIndex("IsbnCode")
                         .IsUnique();
 
                     b.ToTable("Isbns");

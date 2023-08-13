@@ -12,11 +12,24 @@ namespace EF7_Relacje.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>()
+            // Konfiguracja One-To-One we fluentAPI od strony rodzica
+            /*modelBuilder.Entity<Book>()
                 .HasOne(e => e.Isbn)
                 .WithOne(e => e.Book)
                 .HasForeignKey<Isbn>(e => e.BookId)
+                .IsRequired(); */
+
+            // Konfiguracja One-To-Many we fluentAPI od strony rodzica
+            modelBuilder.Entity<Publisher>()
+                .HasMany(e => e.Books)
+                .WithOne(e => e.Publisher)
+                .HasForeignKey(e => e.PublisherId)
                 .IsRequired();
+
+            // Każdy ISBN jest unikalny 
+            modelBuilder.Entity<Isbn>()
+                .HasIndex(i => i.IsbnCode)
+                .IsUnique();
         }
     }
 }

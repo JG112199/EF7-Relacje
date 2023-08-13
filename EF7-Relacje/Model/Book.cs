@@ -6,7 +6,7 @@
         // Relacja jeden do wielu z Wydawcą. Książka ma jednego wydawcę, ale wydawca ma wiele książek
         // Relacja wielu do wielu z Autorem. Książka może mieć wielu autorów i autor może mieć wiele książek
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         // Nawigacja referencyjna do kodu ISBN w relacji jeden do jednego Book - Isbn
         public Isbn? Isbn { get; set; }
